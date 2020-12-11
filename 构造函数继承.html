@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //构造函数继承
+        function Par(name) {
+            this.name = name;
+        }
+        function Child(name) {
+            Par.call(this, name);
+        }
+        let person1 = new Child('1');
+        let person2 = new Child('2');
+        console.log(person1);
+        console.log(person2);
+    </script>
+</body>
+
+</html>
