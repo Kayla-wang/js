@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型链继承
+        //引用类型的属性被所有实例共享
+        //不能传参数
+        function Person() {
+            this.name = '11';
+        }
+        function Child() {
+        }
+        console.log(Child.prototype);
+        Child.prototype = new Person();//重点它相当于完全删除了prototype 对象原先的值，然后赋予一个新值
+        Child.prototype.constructor = Child;
+        console.log(Child.prototype);
+        let person1 = new Child();
+        let person2 = new Child();
+    </script>
+</body>
+</html>
