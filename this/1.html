@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一：全局上下文
+    //在浏览器中window对象也是全局对象
+    console.log(this === window);
+    //二：函数上下文
+    //在函数内部，this的值取决于函数被调用的方式
+    function fn1() {
+        return this;
+    }
+    console.log(fn1());
+    //三：类的上下文
+    // 在类中所有非静态方法都会被添加到this的原型中
+    class example {
+        constructor() {
+            //返回指定对象的原型
+            const proto = Object.getPrototypeOf(this);
+            //返回自身属性名称
+            console.log(Object.getOwnPropertyNames(proto));
+        }
+        init() {
+        }
+        static first() {
+        }
+    }
+    new example()
+    //四：派生类
+    class Base { }
+    class Good extends Base {
+        constructor() {
+            super();
+        }
+    }
+    class AlsoGood extends Base {
+        constructor() {
+            super();
+            return { a: 5 };
+        }
+    }
+    class Bad extends Base {
+        constructor() {
+            super();
+        }
+    }
+
+    new Good();
+    new AlsoGood();
+    new Bad(); // ReferenceError
+
+</script>
+
+</html>
