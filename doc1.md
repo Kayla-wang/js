@@ -1,7 +1,7 @@
-## 哈希
+给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
 
-##### 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。/
-```let  nums = [2,7,11,15], target = 9
+```
+let  nums = [2,7,11,15], target = 9
 const twoSum = function(nums, target) {
 // 这里我用对象来模拟 map 的能力
 const diffs = {}
@@ -18,3 +18,12 @@ return [diffs[target - nums[i]], i]
 diffs[nums[i]]=i
 }
 };
+```
+##### 解题思路
+##### 所有的求和问题都可以转变成求差问题
+
+
+
+
+
+
